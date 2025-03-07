@@ -1,4 +1,4 @@
-# Birthday Website
+# Birthday Website for sterlo (my friend)
 
 This is a simple birthday website built with HTML, CSS, and JavaScript using Bootstrap.
 
