@@ -18,6 +18,7 @@ body {
 
 h1 {
     color: #ff4081;
+    font-weight: bold;
 }
 
 img {
@@ -25,6 +26,23 @@ img {
     max-width: 400px;
     border-radius: 10px;
     margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.message-box {
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-group {
@@ -34,4 +52,6 @@ img {
 #response-msg {
     font-size: 18px;
     font-weight: bold;
+    margin-top: 10px;
 }
+
