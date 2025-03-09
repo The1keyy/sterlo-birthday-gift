@@ -3,7 +3,7 @@ A fun, interactive **birthday website** with a **memory grid of photos & videos*
 Built to celebrate **Sterlizy's 25th birthday!** 🎈🔥  
 
 🚀 **Live Demo:**  
-👉 [Click Here to View the Website](https://yourusername.github.io/your-repository-name/)  
+👉 [Click Here to View the Website]([https://yourusername.github.io/your-repository-name/](https://the1keyy.github.io/sterlo-birthday-gift/))  
 
 ---
 
