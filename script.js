@@ -1,12 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
     // 🎉 Birthday Message Typing Effect
-    const message = `Sterlizy, 🎈
-    
-    Wishing you a fantastic birthday filled with love, joy, and happiness! 
-    I'm so grateful for our friendship. Here's to another amazing year ahead!
+    const message = `Sterlizy 🎈
 
+    My guy, Happy Birthday! Wishing you nothing but success, good energy, and all the blessings coming your way. Today’s your day, so soak it all in and enjoy it because you deserve that and more.
+    
+    I just wanna take a second to say I appreciate you. For real. Through all the years, the convos, the wild moments, and even the chill ones, our friendship has been solid from the jump. From the YMCA days to now, it’s been nothing but real, and I wouldn’t trade that for anything.
+    
+    And they say by 25, your brain is finally fully developed so technically, no more reckless decisions. But let’s be honest, we both know that ain’t stopping nothing. 
+    
+    Life moves fast, but one thing that’s always been constant is this friendship. No matter what, I got you—just like you always got me. And to show you how much I value that, I coded this website for you.
+    
+    So today, it’s all about you. Enjoy the love, celebrate the moment, and keep making moves. 
+    
+    Much love, fam. Stay blessed and turn up! 🎉🔥
+    
     Your brother for life,  
     Key`;
+    
+    document.getElementById("animated-text").innerHTML = message.replace(/\n/g, "<br>");
+    ;
 
     const textElement = document.getElementById("animated-text");
     textElement.innerHTML = `<span class="typing">${message.replace(/\n/g, "<br>")}</span>`;
@@ -42,14 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ Yes/No Button Click Events
     document.getElementById("yes-btn").addEventListener("click", function () {
         document.getElementById("response-msg").innerText = "HMU And Let Me Know!!!!";
-        document.getElementById("response-msg").style.color = "green";
+        document.getElementById("response-msg").style.color = "white";
+        document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
-
+    
     document.getElementById("no-btn").addEventListener("click", function () {
-        document.getElementById("response-msg").innerText = "Bumm";
-        document.getElementById("response-msg").style.color = "red";
+        document.getElementById("response-msg").innerText = "Bumm STOP PLAYING PICK YES";
+        document.getElementById("response-msg").style.color = "white";
+        document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
-
+    
     // 🖼 Memory Grid Logic (4x4 Grid of Random Videos & Photos)
     const memoryContainer = document.getElementById("memoryContainer");
     const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
