@@ -110,6 +110,13 @@ video:hover {
         grid-template-columns: repeat(2, 1fr); /* Switch to 2x2 grid on small screens */
     }
 }
+video {
+    outline: none;
+    user-select: none;
+}
+#playButton {
+    pointer-events: auto;
+}
 
 /* Animations */
 @keyframes fadeIn {
