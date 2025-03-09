@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 🎶 Music Play Button Logic
     const playButton = document.getElementById("playButton");
     const playButtonContainer = document.getElementById("playButtonContainer");
-    const music = new Audio("audio/you-got-a-friend-in-me.mp3");
+    const music = new Audio("music/1.mp3");
     music.loop = true;
 
     playButton.addEventListener("click", () => {
