@@ -98,10 +98,6 @@ video:hover {
     max-height: none !important; /* Ensures the box is NOT limited in height */
 }
 
-
-
-
-
 /* Yes/No Section */
 .btn-group button {
     padding: 10px 20px;

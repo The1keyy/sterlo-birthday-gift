@@ -53,13 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Yes/No Button Click Events
     document.getElementById("yes-btn").addEventListener("click", function () {
-        document.getElementById("response-msg").innerText = "HMU And Let Me Know!!!!";
+        document.getElementById("response-msg").innerText = "Text Me And Let Me Know!!!!";
         document.getElementById("response-msg").style.color = "white";
         document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
     
     document.getElementById("no-btn").addEventListener("click", function () {
-        document.getElementById("response-msg").innerText = "Bumm STOP PLAYING PICK YES";
+        document.getElementById("response-msg").innerText = "STOP PLAYING PICK YES";
         document.getElementById("response-msg").style.color = "white";
         document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
