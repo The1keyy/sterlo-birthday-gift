@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 🎉 Birthday Message Typing Effect
+    // 🎉 Typing Effect for the Message
     const message = `Sterlizy 🎈
 
     My guy, Happy Birthday! Wishing you nothing but success, good energy, and all the blessings coming your way. Today’s your day, so soak it all in and enjoy it because you deserve that and more.
@@ -16,31 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
     
     Your brother for life,  
     Key`;
-    
+
     document.getElementById("animated-text").innerHTML = message.replace(/\n/g, "<br>");
-    ;
 
-    const textElement = document.getElementById("animated-text");
-    textElement.innerHTML = `<span class="typing">${message.replace(/\n/g, "<br>")}</span>`;
-
-    // 🎊 Confetti Effect (Triggers when the page loads)
+    // 🎊 Confetti Effect (Triggers on Page Load)
     const script = document.createElement("script");
     script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
     script.onload = () => {
         let count = 0;
         const confettiInterval = setInterval(() => {
-            confetti({
-                particleCount: 200,
-                spread: 180,
-                origin: { y: 0.6 }
-            });
+            confetti({ particleCount: 200, spread: 180, origin: { y: 0.6 } });
             count++;
-            if (count === 4) clearInterval(confettiInterval); // Stop after 4 bursts
+            if (count === 4) clearInterval(confettiInterval);
         }, 2000);
     };
     document.body.appendChild(script);
 
-    // 🎶 Play Button Music Logic
+    // 🎶 Music Play Button Logic
     const playButton = document.getElementById("playButton");
     const playButtonContainer = document.getElementById("playButtonContainer");
     const music = new Audio("audio/you-got-a-friend-in-me.mp3");
@@ -48,57 +40,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
     playButton.addEventListener("click", () => {
         music.play();
-        playButtonContainer.style.display = "none"; // Hide button after clicking
+        playButtonContainer.style.display = "none";
     });
 
-    // ✅ Yes/No Button Click Events
+    // ✅ Yes/No Button Click Events with Smooth Scroll
     document.getElementById("yes-btn").addEventListener("click", function () {
         document.getElementById("response-msg").innerText = "Text Me And Let Me Know!!!!";
         document.getElementById("response-msg").style.color = "white";
         document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
-    
+
     document.getElementById("no-btn").addEventListener("click", function () {
         document.getElementById("response-msg").innerText = "STOP PLAYING PICK YES";
         document.getElementById("response-msg").style.color = "white";
         document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
-    
+
     // 🖼 Memory Grid Logic (4x4 Grid of Random Videos & Photos)
     const memoryContainer = document.getElementById("memoryContainer");
-    const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
-    const videos = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
+    let usedPhotos = new Set();
+    let usedVideos = new Set();
 
-    function getRandomMemory(isVideo) {
-        if (isVideo) {
-            let videoSrc = videos[Math.floor(Math.random() * videos.length)];
-            return `<video class="memory-item" src="${videoSrc}" muted autoplay loop></video>`;
-        } else {
-            let photoSrc = photos[Math.floor(Math.random() * photos.length)];
-            return `<img class="memory-item fade-out" src="${photoSrc}" alt="Memory">`;
+    const photos = ["photos/p1.jpeg", "photos/p2.jpeg", "photos/p3.jpeg", "photos/p4.jpeg", "photos/p5.jpeg", "photos/p6.jpeg"];
+    const videos = ["videos/v1.mp4", "videos/v2.mp4", "videos/v3.mp4", "videos/v4.mp4", "videos/v5.mp4", "videos/v6.mp4"];
+
+    function getUniqueMemory(isVideo) {
+        let availableItems = isVideo ? videos.filter(v => !usedVideos.has(v)) : photos.filter(p => !usedPhotos.has(p));
+
+        if (availableItems.length === 0) {
+            isVideo ? usedVideos.clear() : usedPhotos.clear(); // Reset if no unique items left
+            availableItems = isVideo ? videos : photos;
+        }
+
+        let randomIndex = Math.floor(Math.random() * availableItems.length);
+        let selectedItem = availableItems[randomIndex];
+
+        isVideo ? usedVideos.add(selectedItem) : usedPhotos.add(selectedItem);
+
+        return isVideo
+            ? `<video class="memory-item" src="${selectedItem}" muted autoplay loop></video>`
+            : `<img class="memory-item fade-out" src="${selectedItem}" alt="Memory">`;
+    }
+
+    // Generate 4x4 Grid (16 Items)
+    function generateMemoryGrid() {
+        memoryContainer.innerHTML = "";
+        usedPhotos.clear();
+        usedVideos.clear();
+
+        for (let i = 0; i < 16; i++) {
+            let isVideo = Math.random() > 0.5;
+            let memoryElement = document.createElement("div");
+            memoryElement.innerHTML = getUniqueMemory(isVideo);
+            memoryContainer.appendChild(memoryElement);
+
+            if (isVideo) {
+                let videoElement = memoryElement.querySelector("video");
+                if (videoElement) updateVideo(videoElement);
+            }
         }
     }
 
-    // Generate 4x4 grid (16 items)
-    for (let i = 0; i < 16; i++) {
-        let isVideo = Math.random() > 0.5; // 50% chance for video or photo
-        let memoryElement = document.createElement("div");
-        memoryElement.innerHTML = getRandomMemory(isVideo);
-        memoryContainer.appendChild(memoryElement);
-    }
-
-    // 🔄 Update Videos After 3 Loops
+    // 🔄 Update Videos After One Loop
     function updateVideo(videoElement) {
-        let playCount = 0;
         videoElement.addEventListener("ended", function () {
-            playCount++;
-            if (playCount >= 3) { // Change video after 3 loops
-                videoElement.outerHTML = getRandomMemory(true);
-                let newVideo = memoryContainer.querySelector("video:last-child");
-                if (newVideo) updateVideo(newVideo); // Attach event to new video
-            } else {
-                videoElement.play(); // Keep looping until 3 times
-            }
+            let newVideoHTML = getUniqueMemory(true);
+            let newVideoElement = document.createElement("div");
+            newVideoElement.innerHTML = newVideoHTML;
+            let newVideo = newVideoElement.firstChild;
+
+            videoElement.replaceWith(newVideo);
+            updateVideo(newVideo);
         });
     }
 
@@ -108,15 +120,26 @@ document.addEventListener("DOMContentLoaded", function () {
             let images = document.querySelectorAll(".memory-item img");
             images.forEach((img) => {
                 img.classList.add("fade-out");
-                setTimeout(() => { img.outerHTML = getRandomMemory(false); }, 1000);
+                setTimeout(() => {
+                    let newPhotoHTML = getUniqueMemory(false);
+                    let newPhotoElement = document.createElement("div");
+                    newPhotoElement.innerHTML = newPhotoHTML;
+                    let newPhoto = newPhotoElement.firstChild;
+
+                    img.replaceWith(newPhoto);
+                }, 1000);
             });
         }, 6000);
     }
 
-    // Activate Video & Photo Updating
+    // 🔄 Refresh Entire Grid Every 30 Seconds (Optional)
+    setInterval(() => {
+        generateMemoryGrid();
+    }, 30000);
+
+    // Activate Video & Photo Updating Independently
     setTimeout(() => {
-        let videos = document.querySelectorAll("video");
-        videos.forEach(updateVideo);
+        generateMemoryGrid();
         updatePhotos();
     }, 1000);
 });
