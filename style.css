@@ -114,8 +114,17 @@ video {
     outline: none;
     user-select: none;
 }
+
 #playButton {
     pointer-events: auto;
+    cursor: pointer;
+}
+
+.memory-item video, 
+.memory-item img {
+    pointer-events: none;  /* Prevents clicking */
+    user-select: none;  /* Stops text/image selection */
+    touch-action: manipulation;  /* Stops double-tap zoom */
 }
 
 /* Animations */

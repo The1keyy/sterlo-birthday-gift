@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
         img.onerror = () => console.error(`Missing file: ${selectedItem}`);
     
         return isVideo
-            ? `<video class="memory-item" src="${selectedItem}" muted autoplay loop></video>`
-            : `<img class="memory-item fade-out" src="${selectedItem}" alt="Memory">`;
+    ? `<video class="memory-item" src="${selectedItem}" muted autoplay loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"></video>`
+    : `<img class="memory-item fade-out" src="${selectedItem}" alt="Memory">`;
     }    
 
     // Generate 4x4 Grid (16 Items)
