@@ -76,22 +76,26 @@ video:hover {
     animation: fadeOut 1s ease-in-out;
 }
 
-/* Message Box */
 .message-box {
     background: rgba(0, 0, 0, 0.5);
-    padding: 15px;
+    padding: 20px 40px; /* Ensures enough spacing inside */
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    margin: auto;
-    font-size: 18px;
+    width: 90%; /* Keeps it inside the container */
+    max-width: 90vw; /* Adjust width dynamically based on screen size */
+    margin: 20px auto; /* Centers it with space above */
+    font-size: 16px; /* Makes text readable */
     font-weight: bold;
     color: white;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: auto; /* Allows the box to grow with text */
+    display: block; /* Prevents flex issues */
+    text-align: center; /* Centers text properly */
+    word-wrap: break-word; /* Prevents text from overflowing */
+    white-space: normal; /* Ensures text breaks correctly */
+    line-height: 1.6; /* Improves spacing between lines */
+    overflow: visible; /* Ensures all text is shown */
 }
+
 
 /* Typing Effect */
 .typing {
