@@ -24,11 +24,6 @@ This project combines **fun animations, a dynamic memory grid, and a personalize
 
 ---
 
-## **🚀 How to Run This Project**
-### **1️⃣ View the Live Website**
-Click here to view it live:  
-👉 [🎂 Open the Celebration](https://the1keyy.github.io/sterlo-birthday-gift/)
-
 Free to use & modify.
 
 🎈 Enjoy the Celebration & Turn Up! 🚀🔥
