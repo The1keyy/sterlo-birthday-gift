@@ -8,7 +8,7 @@ This project combines **fun animations, a dynamic memory grid, and a personalize
 
 ---
 
-## **💖 Why This Project is Special**
+## ** Why This Project is Special**
 🎁 **More than just a birthday wish** – this is a **coded celebration** of friendship.  
 📸 **A collection of moments** – a **grid of photos & videos** that update dynamically.  
 🎵 **Music & animation** – creating an immersive **birthday experience**.  
