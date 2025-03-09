@@ -1,13 +1,14 @@
-/* General Styling */
+/* 🎨 General Styling */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #005AA7, #FF7300); /* Birthday theme gradient */
     color: white;
     text-align: center;
     padding-top: 20px;
+    margin: 0;
 }
 
-/* Heading */
+/* 🏆 Heading */
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -15,7 +16,7 @@ h1 {
     animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in */
 }
 
-/* Play Button */
+/* 🎶 Play Button */
 #playButtonContainer {
     text-align: center;
     margin-top: 20px;
@@ -39,7 +40,7 @@ h1 {
     background: #FFAA00;
 }
 
-/* Memory Container (4x4 Grid) */
+/* 📸 Memory Container (4x4 Grid) */
 .memory-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -52,7 +53,7 @@ h1 {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Photos & Videos */
+/* 🖼 Photos & Videos */
 .memory-item {
     width: 100%;
     height: 150px;
@@ -62,64 +63,7 @@ h1 {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Video Zoom Effect */
-video {
-    transition: transform 1s ease-in-out;
-}
-
-video:hover {
-    transform: scale(1.05); /* Slight zoom-in on hover */
-}
-
-/* Fade Out for Photos before change */
-.fade-out {
-    animation: fadeOut 1s ease-in-out;
-}
-
-.message-box {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px 30px; /* Adds space inside */
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-    width: 90%; /* Keeps it inside the container */
-    max-width: 600px; /* Prevents it from being too wide */
-    margin: 20px auto; /* Centers it */
-    font-size: 13px; /* Makes text smaller to fit more content */
-    font-weight: bold;
-    color: white;
-    min-height: auto; /* Allows it to grow dynamically */
-    height: auto !important; /* Forces expansion */
-    display: block; /* Prevents flexbox issues */
-    text-align: center; /* Centers text */
-    word-wrap: break-word; /* Prevents text overflow */
-    white-space: normal; /* Ensures text wraps */
-    line-height: 1.4; /* Optimizes spacing */
-    overflow: visible !important; /* Forces all content to be shown */
-    max-height: none !important; /* Ensures the box is NOT limited in height */
-}
-
-/* Yes/No Section */
-.btn-group button {
-    padding: 10px 20px;
-    font-size: 18px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .memory-container {
-        grid-template-columns: repeat(2, 1fr); /* Switch to 2x2 grid on small screens */
-    }
-}
-video {
-    outline: none;
-    user-select: none;
-}
-
-#playButton {
-    pointer-events: auto;
-    cursor: pointer;
-}
-
+/* 🛑 Disable Clicks on Videos & Photos */
 .memory-item video, 
 .memory-item img {
     pointer-events: none;  /* Prevents clicking */
@@ -127,7 +71,62 @@ video {
     touch-action: manipulation;  /* Stops double-tap zoom */
 }
 
-/* Animations */
+/* 🖥 Video Adjustments */
+video {
+    transition: transform 1s ease-in-out;
+    outline: none;
+    user-select: none;
+}
+
+video:hover {
+    transform: scale(1.05); /* Slight zoom-in on hover */
+}
+
+/* 🔄 Fade Out for Photos before Change */
+.fade-out {
+    animation: fadeOut 1s ease-in-out;
+}
+
+/* 💬 Message Box */
+.message-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 25px; /* Adjusted for better spacing */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 14px; /* Slightly smaller text for better fit */
+    font-weight: bold;
+    color: white;
+    min-height: auto;
+    height: auto !important;
+    display: block;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+/* ✅ Yes/No Section */
+.btn-group button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 768px) {
+    .memory-container {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2x2 grid on small screens */
+    }
+    .message-box {
+        font-size: 12px; /* Smaller text for better fit on small screens */
+    }
+}
+
+/* 🎭 Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }

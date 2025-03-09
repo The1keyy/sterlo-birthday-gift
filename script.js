@@ -74,33 +74,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function getUniqueMemory(isVideo) {
         let availableItems = isVideo ? videos.filter(v => !usedVideos.has(v)) : photos.filter(p => !usedPhotos.has(p));
-    
+
         if (availableItems.length === 0) {
             isVideo ? usedVideos.clear() : usedPhotos.clear();
             availableItems = isVideo ? videos : photos;
         }
-    
+
         let randomIndex = Math.floor(Math.random() * availableItems.length);
         let selectedItem = availableItems[randomIndex];
-    
+
         isVideo ? usedVideos.add(selectedItem) : usedPhotos.add(selectedItem);
-    
-        // Ensure file exists before returning
-        let img = new Image();
-        img.src = selectedItem;
-        img.onerror = () => console.error(`Missing file: ${selectedItem}`);
-    
+
         return isVideo
-    ? `<video class="memory-item" src="${selectedItem}" muted autoplay loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"></video>`
-    : `<img class="memory-item fade-out" src="${selectedItem}" alt="Memory">`;
-    }    
+            ? `<video class="memory-item" src="${selectedItem}" muted autoplay loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"></video>`
+            : `<img class="memory-item fade-out" src="${selectedItem}" alt="Memory">`;
+    }
 
     // Generate 4x4 Grid (16 Items)
     function generateMemoryGrid() {
         memoryContainer.innerHTML = "";
+        usedPhotos.clear();
+        usedVideos.clear();
 
         for (let i = 0; i < 16; i++) {
-            let isVideo = Math.random() > 0.5;
+            let isVideo = i % 2 === 0; // Ensures even distribution of videos and photos
             let memoryElement = document.createElement("div");
             memoryElement.innerHTML = getUniqueMemory(isVideo);
             memoryContainer.appendChild(memoryElement);
