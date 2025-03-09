@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let usedVideos = new Set();
 
     const photos = ["photos/p1.jpeg", "photos/p2.jpeg", "photos/p3.jpeg", "photos/p4.jpeg", "photos/p5.jpeg", "photos/p6.jpeg"];
-    const videos = ["videos/v1.mp4", "videos/v2.mp4", "videos/v3.mp4", "videos/v4.mp4", "videos/v5.mp4", "videos/v6.mp4"];
+    const videos = ["videos/v1.mp4", "videos/v2.mp4", "videos/v3.mp4", "videos/v4.mp4", "videos/v5.mp4", "videos/v6.mp4", "videos/v7.mp4", "videos/v8.mp4", "videos/v9.mp4", "videos/v10.mp4"];
 
     function getUniqueMemory(isVideo) {
         let availableItems = isVideo ? videos.filter(v => !usedVideos.has(v)) : photos.filter(p => !usedPhotos.has(p));
