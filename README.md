@@ -1,11 +1,15 @@
-# Birthday Website for sterlo (my friend)
+# 🎉 Happy Birthday Memory Grid 🎂  
+A fun, interactive **birthday website** with a **memory grid of photos & videos** that change dynamically.  
+Built to celebrate **Sterlizy's 25th birthday!** 🎈🔥  
 
-This is a simple birthday website built with HTML, CSS, and JavaScript using Bootstrap.
+🚀 **Live Demo:**  
+👉 [Click Here to View the Website](https://yourusername.github.io/your-repository-name/)  
 
-## Features
-- Displays a birthday message and image.
-- Asks if the person wants a website and provides interactive Yes/No buttons.
-- Updates the response message dynamically.
-- Plays background music.
-- Adds a confetti effect.
+---
 
+## **📌 Features**
+✅ **Dynamic Memory Grid** – A 4x4 grid of **randomly selected photos & videos**  
+✅ **Auto-Update** – **Videos change after 1 loop**, **Photos update every 6 seconds**  
+✅ **Music Player** – Background music starts when clicking the "Play" button  
+✅ **Confetti Animation** – **Festive confetti** effect when the page loads 🎊  
+✅ **Personalized Message** – A heartfelt message displayed with a **typing effect**  
