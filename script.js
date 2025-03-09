@@ -93,8 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Generate 4x4 Grid (16 Items)
     function generateMemoryGrid() {
         memoryContainer.innerHTML = "";
-        usedPhotos.clear();
-        usedVideos.clear();
 
         for (let i = 0; i < 16; i++) {
             let isVideo = Math.random() > 0.5;
@@ -112,30 +110,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // 🔄 Update Videos After One Full Loop
     function updateVideo(videoElement) {
         videoElement.addEventListener("ended", function () {
-            let newVideoHTML = getUniqueMemory(true);
-            let newVideoElement = document.createElement("div");
-            newVideoElement.innerHTML = newVideoHTML;
-            let newVideo = newVideoElement.firstChild;
+            setTimeout(() => {
+                let newVideoHTML = getUniqueMemory(true);
+                let newVideoElement = document.createElement("div");
+                newVideoElement.innerHTML = newVideoHTML;
+                let newVideo = newVideoElement.firstChild;
 
-            videoElement.replaceWith(newVideo);
-            updateVideo(newVideo);
+                videoElement.replaceWith(newVideo);
+                updateVideo(newVideo);
+            }, 2000); // Add 2s delay before changing
         });
     }
 
-    // ⏳ Update Photos Every 6 Seconds
+    // ⏳ Update Photos Every 6 Seconds (Staggered Updates)
     function updatePhotos() {
         setInterval(() => {
             let images = document.querySelectorAll(".memory-item img");
-            images.forEach((img) => {
-                img.classList.add("fade-out");
+            images.forEach((img, index) => {
                 setTimeout(() => {
-                    let newPhotoHTML = getUniqueMemory(false);
-                    let newPhotoElement = document.createElement("div");
-                    newPhotoElement.innerHTML = newPhotoHTML;
-                    let newPhoto = newPhotoElement.firstChild;
+                    img.classList.add("fade-out");
+                    setTimeout(() => {
+                        let newPhotoHTML = getUniqueMemory(false);
+                        let newPhotoElement = document.createElement("div");
+                        newPhotoElement.innerHTML = newPhotoHTML;
+                        let newPhoto = newPhotoElement.firstChild;
 
-                    img.replaceWith(newPhoto);
-                }, 1000);
+                        img.replaceWith(newPhoto);
+                    }, 1000);
+                }, index * 500); // Stagger updates by 500ms
             });
         }, 6000);
     }
