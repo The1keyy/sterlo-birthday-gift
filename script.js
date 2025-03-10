@@ -63,13 +63,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const photos = [
         "photos/p1.jpeg", "photos/p2.jpeg", "photos/p3.jpeg", "photos/p4.jpeg",
-        "photos/p5.png", "photos/p6.jpeg", "photos/p7.jpeg", "photos/p8.jpeg", "photos/p9.jpg"
+        "photos/p5.png", "photos/p6.png", "photos/p7.jpeg", "photos/p8.jpeg", "photos/p9.jpg", 
+        "photos/p10.png", "photos/p11.png"
+
     ];
 
     const videos = [
         "videos/v1.mp4", "videos/v2.mp4", "videos/v3.mp4", "videos/v4.mp4",
         "videos/v5.mp4", "videos/v6.mp4", "videos/v7.mp4", "videos/v8.mp4",
-        "videos/v9.mp4", "videos/v10.mp4", "videos/v11.mp4", "videos/v12.mp4"
+        "videos/v9.mp4", "videos/v10.mp4", "videos/v11.mp4", "videos/v12.mp4",
+        "videos/v13.mp4", "videos/v14.mp4", "videos/v15.mp4", "videos/v16.mp4"
     ];
 
     function getUniqueMemory(isVideo) {
