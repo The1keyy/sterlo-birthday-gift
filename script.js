@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let usedVideos = new Set();
 
     const photos = [
-        "photos/p1.jpeg", "photos/p2.jpeg", "photos/p3.jpeg", "photos/p4.jpeg",
+        "photos/p1.jpeg", "photos/p2.png", "photos/p3.jpeg", "photos/p4.jpeg",
         "photos/p5.png", "photos/p6.png", "photos/p7.jpeg", "photos/p8.jpeg", "photos/p9.jpg", 
-        "photos/p10.png", "photos/p11.png"
+        "photos/p10.png", "photos/p11.png", "photos/p13.jpeg"
 
     ];
 
