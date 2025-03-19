@@ -1,22 +1,22 @@
-/* 🎨 General Styling */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #005AA7, #FF7300); /* Birthday theme gradient */
+    background: linear-gradient(to right, #005AA7, #FF7300); 
     color: white;
     text-align: center;
     padding-top: 20px;
     margin: 0;
 }
 
-/* 🏆 Heading */
+/* Heading */
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in */
+    animation: fadeIn 1.5s ease-in-out; 
 }
 
-/* 🎶 Play Button */
+/* Play Button */
 #playButtonContainer {
     text-align: center;
     margin-top: 20px;
@@ -33,14 +33,14 @@ h1 {
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease;
-    animation: bounce 1.5s infinite alternate; /* Bouncing effect */
+    animation: bounce 1.5s infinite alternate;
 }
 
 #playButton:hover {
     background: #FFAA00;
 }
 
-/* 📸 Memory Container (4x4 Grid) */
+/* Memory Container (4x4 Grid) */
 .memory-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -48,12 +48,12 @@ h1 {
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.2); /* Transparent overlay effect */
+    background: rgba(255, 255, 255, 0.2); 
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* 🖼 Photos & Videos */
+/* Photos & Videos */
 .memory-item {
     width: 100%;
     height: 150px;
@@ -63,15 +63,15 @@ h1 {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* 🛑 Disable Clicks on Videos & Photos */
+/*  Disable Clicks on Videos & Photos */
 .memory-item video, 
 .memory-item img {
-    pointer-events: none;  /* Prevents clicking */
-    user-select: none;  /* Stops text/image selection */
-    touch-action: manipulation;  /* Stops double-tap zoom */
+    pointer-events: none;  
+    user-select: none;  
+    touch-action: manipulation;  
 }
 
-/* 🖥 Video Adjustments */
+/* Video Adjustments */
 video {
     transition: transform 1s ease-in-out;
     outline: none;
@@ -79,24 +79,24 @@ video {
 }
 
 video:hover {
-    transform: scale(1.05); /* Slight zoom-in on hover */
+    transform: scale(1.05); 
 }
 
-/* 🔄 Fade Out for Photos before Change */
+/* Fade Out for Photos before Change */
 .fade-out {
     animation: fadeOut 1s ease-in-out;
 }
 
-/* 💬 Message Box */
+/* Message Box */
 .message-box {
     background: rgba(0, 0, 0, 0.5);
-    padding: 15px 25px; /* Adjusted for better spacing */
+    padding: 15px 25px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 600px;
     margin: 20px auto;
-    font-size: 14px; /* Slightly smaller text for better fit */
+    font-size: 14px; 
     font-weight: bold;
     color: white;
     min-height: auto;
@@ -110,19 +110,19 @@ video:hover {
     max-height: none !important;
 }
 
-/* ✅ Yes/No Section */
+/*  Yes/No Section */
 .btn-group button {
     padding: 10px 20px;
     font-size: 18px;
 }
 
-/* 📱 Responsive Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .memory-container {
-        grid-template-columns: repeat(2, 1fr); /* Switch to 2x2 grid on small screens */
+        grid-template-columns: repeat(2, 1fr); 
     }
     .message-box {
-        font-size: 12px; /* Smaller text for better fit on small screens */
+        font-size: 12px; 
     }
 }
 

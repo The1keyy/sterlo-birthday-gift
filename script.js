@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 🎉 Typing Effect for the Message
+    // Message
     const message = `Sterlizy 🎈
 
     My guy, Happy Birthday! Wishing you nothing but success, good energy, and all the blessings coming your way. Today’s your day, so soak it all in and enjoy it because you deserve that and more.
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("animated-text").innerHTML = message.replace(/\n/g, "<br>");
 
-    // 🎊 Confetti Effect (Triggers on Page Load)
+    // Confetti Effect 
     const script = document.createElement("script");
     script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
     script.onload = () => {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     document.body.appendChild(script);
 
-    // 🎶 Music Play Button Logic
+    // Music Play Button 
     const playButton = document.getElementById("playButton");
     const playButtonContainer = document.getElementById("playButtonContainer");
     const music = new Audio("music/1.mp3");
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         playButtonContainer.style.display = "none";
     });
 
-    // ✅ Yes/No Button Click Events with Smooth Scroll
+    // Yes/No Button Click Events with Smooth Scroll
     document.getElementById("yes-btn").addEventListener("click", function () {
         document.getElementById("response-msg").innerText = "Text Me And Let Me Know!!!!";
         document.getElementById("response-msg").style.color = "white";
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("response-msg").scrollIntoView({ behavior: "smooth", block: "center" });
     });
 
-    // 🖼 Memory Grid Logic (4x4 Grid of Random Videos & Photos)
+    // Memory Grid Logic (4x4 Grid of Random Videos & Photos)
     const memoryContainer = document.getElementById("memoryContainer");
     let usedPhotos = new Set();
     let usedVideos = new Set();
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         usedVideos.clear();
 
         for (let i = 0; i < 16; i++) {
-            let isVideo = i % 2 === 0; // Ensures even distribution of videos and photos
+            let isVideo = i % 2 === 0; 
             let memoryElement = document.createElement("div");
             memoryElement.innerHTML = getUniqueMemory(isVideo);
             memoryContainer.appendChild(memoryElement);
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 🔄 Update Videos After One Full Loop
+    // Update Videos After One Full Loop
     function updateVideo(videoElement) {
         videoElement.addEventListener("ended", function () {
             setTimeout(() => {
@@ -123,11 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 videoElement.replaceWith(newVideo);
                 updateVideo(newVideo);
-            }, 2000); // Add 2s delay before changing
+            }, 2000); 
         });
     }
 
-    // ⏳ Update Photos Every 6 Seconds (Staggered Updates)
+    // Update Photos Every 6 Seconds (Staggered Updates)
     function updatePhotos() {
         setInterval(() => {
             let images = document.querySelectorAll(".memory-item img");
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         img.replaceWith(newPhoto);
                     }, 1000);
-                }, index * 500); // Stagger updates by 500ms
+                }, index * 500); 
             });
         }, 6000);
     }
